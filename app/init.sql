@@ -127,6 +127,10 @@ CREATE TABLE factura (
     CONSTRAINT pk_factura PRIMARY KEY (id_factura),
     CONSTRAINT uk_factura_numero UNIQUE (serie, correlativo)
 );
+--primera prueba del uso del insert
+INSERT INTO(serie, correlativo,fecha_emision, observacion)
+VALUES('serie1',1,'20-10-2026','venta realizada con descuento');
+
 --tabla detalle_factura
 CREATE TABLE detalle_factura (
     id_factura      INTEGER NOT NULL,
