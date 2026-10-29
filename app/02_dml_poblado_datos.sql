@@ -20,3 +20,9 @@ INSERT INTO empleado (codigo_rol, codigo_sucursal, nombre, correo) VALUES
     (3, 2, 'Regina Ticona Herrera',       'regina.ticona@example.com'),
     (4, 4, 'Maria Cornejo Lupa',        'maria.cornejo@example.com'),
     (5, 5, 'Jose Quispe Caceres',        'jose.quispe@example.com');
+
+-------------------------------------------------
+-- sucursal: se registra el teléfono que faltaba
+UPDATE sucursal
+SET    telefono = '054-259876'
+WHERE  codigo_sucursal = 3;
