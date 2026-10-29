@@ -26,3 +26,8 @@ INSERT INTO empleado (codigo_rol, codigo_sucursal, nombre, correo) VALUES
 UPDATE sucursal
 SET    telefono = '054-259876'
 WHERE  codigo_sucursal = 3;
+
+-- empleado: traslado de un empleado a otra sucursal
+UPDATE empleado
+SET    codigo_sucursal = 1
+WHERE  codigo_empleado = 4;
