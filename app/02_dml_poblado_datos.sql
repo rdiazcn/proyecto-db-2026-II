@@ -12,3 +12,11 @@ INSERT INTO sucursal (nombre, direccion, telefono) VALUES
     ('Arequipa Yanahuara', 'Av. Jerusalén 1020, Yanahuara, Arequipa', NULL),
     ('Lima Miraflores', 'Av. Larco 1150, Miraflores, Lima', '01-4455667'),
     ('Cusco Plaza',     'Av. El Sol 330, Cusco', '084-233900');
+--empleado  (depende de rol y sucursal)
+INSERT INTO empleado (codigo_rol, codigo_sucursal, nombre, correo) VALUES
+    (1, 1, 'Rodrigo Díaz Cucalón',     'rodrigo.diaz@example.com'),
+    (2, 1, 'Rony Choquecondo Luque',     'rony.choquecondo@example.com'),
+    (2, 2, 'Alejandro Salazar Guillen',      'alejandro.salazar@example.com'),
+    (3, 2, 'Regina Ticona Herrera',       'regina.ticona@example.com'),
+    (4, 4, 'Maria Cornejo Lupa',        'maria.cornejo@example.com'),
+    (5, 5, 'Jose Quispe Caceres',        'jose.quispe@example.com');
