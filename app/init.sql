@@ -161,13 +161,6 @@ CREATE TABLE pago (
     CONSTRAINT pk_pago PRIMARY KEY (id_pago),
     CONSTRAINT uk_pago_numero UNIQUE (numero_pago)
 );
---tabla metodo_pago
-CREATE TABLE metodo_pago (
-    codigo_metodo SERIAL,
-    nombre        VARCHAR(50) NOT NULL,
-    CONSTRAINT pk_metodo_pago PRIMARY KEY (codigo_metodo),
-    CONSTRAINT uk_metodo_pago_nombre UNIQUE (nombre)
-);
 
 
 -- Documentación (COMMENT ON)
