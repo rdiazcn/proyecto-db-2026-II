@@ -176,8 +176,10 @@ CREATE TABLE nota_credito (
     fecha_emision   DATE NOT NULL DEFAULT CURRENT_DATE,
     motivo          TEXT NOT NULL,
     monto           NUMERIC(10, 2) NOT NULL CHECK (monto > 0),
+    id_factura      INTEGER NOT NULL,
     CONSTRAINT pk_nota_credito PRIMARY KEY (id_nota_credito),
-    CONSTRAINT uk_nota_credito_numero UNIQUE (numero)
+    CONSTRAINT uk_nota_credito_numero UNIQUE (numero),
+    CONSTRAINT fk_nota_credito_factura FOREIGN KEY (id_factura) REFERENCES factura (id_factura)
 );
 --tabla pago
 CREATE TABLE pago (
