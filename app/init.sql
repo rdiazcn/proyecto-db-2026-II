@@ -139,8 +139,16 @@ CREATE TABLE factura (
     correlativo   INTEGER NOT NULL,
     fecha_emision DATE NOT NULL DEFAULT CURRENT_DATE,
     observacion   TEXT,
+    numero_documento VARCHAR(20) NOT NULL,
+    codigo_empleado  INTEGER NOT NULL,
+    codigo_sucursal  INTEGER NOT NULL,
+    codigo_estado    SMALLINT NOT NULL,
     CONSTRAINT pk_factura PRIMARY KEY (id_factura),
     CONSTRAINT uk_factura_numero UNIQUE (serie, correlativo)
+    CONSTRAINT fk_factura_cliente FOREIGN KEY (numero_documento) REFERENCES cliente (numero_documento),
+    CONSTRAINT fk_factura_empleado FOREIGN KEY (codigo_empleado) REFERENCES empleado (codigo_empleado),
+    CONSTRAINT fk_factura_sucursal FOREIGN KEY (codigo_sucursal) REFERENCES sucursal (codigo_sucursal),
+    CONSTRAINT fk_factura_estado FOREIGN KEY (codigo_estado) REFERENCES estado_factura (codigo_estado)
 );
 --primera prueba del uso del insert
 INSERT INTO(serie, correlativo,fecha_emision, observacion)
