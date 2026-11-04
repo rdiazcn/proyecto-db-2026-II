@@ -178,8 +178,12 @@ CREATE TABLE pago (
     fecha_pago  DATE NOT NULL DEFAULT CURRENT_DATE,
     monto       NUMERIC(10, 2) NOT NULL CHECK (monto > 0),
     referencia  VARCHAR(100),
+    id_factura    INTEGER NOT NULL,
+    codigo_metodo SMALLINT NOT NULL,
     CONSTRAINT pk_pago PRIMARY KEY (id_pago),
     CONSTRAINT uk_pago_numero UNIQUE (numero_pago)
+    CONSTRAINT fk_pago_factura FOREIGN KEY (id_factura) REFERENCES factura (id_factura),
+    CONSTRAINT fk_pago_metodo FOREIGN KEY (codigo_metodo) REFERENCES metodo_pago (codigo_metodo)
 );
 
 
