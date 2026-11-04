@@ -5,6 +5,16 @@
 
 -- Limpieza para poder volver a ejecutar el script
 
+DROP TABLE IF EXISTS nota_credito    CASCADE;
+DROP TABLE IF EXISTS pago            CASCADE;
+DROP TABLE IF EXISTS detalle_factura CASCADE;
+DROP TABLE IF EXISTS factura         CASCADE;
+DROP TABLE IF EXISTS inventario      CASCADE;
+DROP TABLE IF EXISTS producto        CASCADE;
+DROP TABLE IF EXISTS empleado        CASCADE;
+DROP TABLE IF EXISTS cliente         CASCADE;
+DROP TABLE IF EXISTS metodo_pago     CASCADE;
+DROP TABLE IF EXISTS estado_factura  CASCADE;
 DROP TABLE IF EXISTS proveedor       CASCADE;
 DROP TABLE IF EXISTS categoria       CASCADE;
 DROP TABLE IF EXISTS sucursal        CASCADE;
