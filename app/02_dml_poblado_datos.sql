@@ -12,6 +12,16 @@ INSERT INTO sucursal (nombre, direccion, telefono) VALUES
     ('Arequipa Yanahuara', 'Av. Jerusalén 1020, Yanahuara, Arequipa', NULL),
     ('Lima Miraflores', 'Av. Larco 1150, Miraflores, Lima', '01-4455667'),
     ('Cusco Plaza',     'Av. El Sol 330, Cusco', '084-233900');
+-- categoria
+INSERT INTO categoria (nombre, descripcion) VALUES
+    ('Tecnología', 'Equipos de cómputo y accesorios'),
+    ('Hogar',      'Artículos para el hogar'),
+    ('Oficina',    'Útiles y mobiliario de oficina'),
+    ('Alimentos',  'Productos de consumo envasados'),
+    ('Servicios',  'Servicios técnicos y de soporte');
+--proveedor
+--metodo_pago
+--cliente (depende de tipo_documento)
 --empleado  (depende de rol y sucursal)
 INSERT INTO empleado (codigo_rol, codigo_sucursal, nombre, correo) VALUES
     (1, 1, 'Rodrigo Díaz Cucalón',     'rodrigo.diaz@example.com'),
@@ -20,15 +30,18 @@ INSERT INTO empleado (codigo_rol, codigo_sucursal, nombre, correo) VALUES
     (3, 2, 'Regina Ticona Herrera',       'regina.ticona@example.com'),
     (4, 4, 'Maria Cornejo Lupa',        'maria.cornejo@example.com'),
     (5, 5, 'Jose Quispe Caceres',        'jose.quispe@example.com');
--- categoria
-INSERT INTO categoria (nombre, descripcion) VALUES
-    ('Tecnología', 'Equipos de cómputo y accesorios'),
-    ('Hogar',      'Artículos para el hogar'),
-    ('Oficina',    'Útiles y mobiliario de oficina'),
-    ('Alimentos',  'Productos de consumo envasados'),
-    ('Servicios',  'Servicios técnicos y de soporte');
+--producto (depende de categoria y proveedor)
+--tipo_documento (ya poblado en init.sql)
+--estado_factura
+--inventario (depende de producto y sucursal)
+--factura (depende de cliente, empleado, sucursal y estado_factura)
+--detalle_factura (depende de factura y producto)
+--pago (depende de factura y metodo pago)
+--nota_credito (depende de factura)
 
 -------------------------------------------------
+-- cliente: se marca como inactivo a un cliente que dejó de comprar
+-- producto: aumento de 10 % a los productos de tecnología
 -- sucursal: se registra el teléfono que faltaba
 UPDATE sucursal
 SET    telefono = '054-259876'
@@ -38,3 +51,15 @@ WHERE  codigo_sucursal = 3;
 UPDATE empleado
 SET    codigo_sucursal = 1
 WHERE  codigo_empleado = 4;
+-- proveedor: cambio de correo de contacto
+-- rol: se precisa la descripción del rol Contador
+-- categoria: se amplía la descripción de Tecnología
+-- metodo_pago: se renombra el método Tarjeta
+-- tipo_documento: se aclara la descripción del CE
+-- estado_factura: se renombra el estado inicial
+-- inventario: reposición de 20 laptops en la sucursal 1
+--     (la llave es compuesta: producto y sucursal)
+-- factura: las facturas pendientes emitidas antes del 10/10 pasan a Vencida (4)
+-- detalle_factura: se corrige la cantidad en una factura aún pendiente
+-- pago: se registra el número de recibo de un pago en efectivo
+--  nota_credito: se detalla el motivo de la anulación
