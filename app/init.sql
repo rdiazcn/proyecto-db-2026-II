@@ -149,12 +149,17 @@ VALUES('serie1',1,'20-10-2026','venta realizada con descuento');
 --tabla detalle_factura
 CREATE TABLE detalle_factura (
     id_factura      INTEGER NOT NULL,
+    codigo_producto VARCHAR(20) NOT NULL,
     cantidad        INTEGER NOT NULL CHECK (cantidad > 0),
     precio_aplicado NUMERIC(10, 2) NOT NULL CHECK (precio_aplicado >= 0),
+    CONSTRAINT pk_detalle_factura PRIMARY KEY (id_factura, codigo_producto),
     CONSTRAINT fk_detalle_factura 
         FOREIGN KEY (id_factura) 
         REFERENCES factura (id_factura) 
         ON DELETE CASCADE
+    CONSTRAINT fk_detalle_producto
+        FOREIGN KEY (codigo_producto)
+        REFERENCES producto (codigo)
 );
 --tabla nota_credito
 CREATE TABLE nota_credito (
