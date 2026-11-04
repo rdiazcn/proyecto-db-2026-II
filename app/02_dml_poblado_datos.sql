@@ -20,6 +20,13 @@ INSERT INTO empleado (codigo_rol, codigo_sucursal, nombre, correo) VALUES
     (3, 2, 'Regina Ticona Herrera',       'regina.ticona@example.com'),
     (4, 4, 'Maria Cornejo Lupa',        'maria.cornejo@example.com'),
     (5, 5, 'Jose Quispe Caceres',        'jose.quispe@example.com');
+-- categoria
+INSERT INTO categoria (nombre, descripcion) VALUES
+    ('Tecnología', 'Equipos de cómputo y accesorios'),
+    ('Hogar',      'Artículos para el hogar'),
+    ('Oficina',    'Útiles y mobiliario de oficina'),
+    ('Alimentos',  'Productos de consumo envasados'),
+    ('Servicios',  'Servicios técnicos y de soporte');
 
 -------------------------------------------------
 -- sucursal: se registra el teléfono que faltaba
