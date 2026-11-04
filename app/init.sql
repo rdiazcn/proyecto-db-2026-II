@@ -144,7 +144,7 @@ CREATE TABLE factura (
     codigo_sucursal  INTEGER NOT NULL,
     codigo_estado    SMALLINT NOT NULL,
     CONSTRAINT pk_factura PRIMARY KEY (id_factura),
-    CONSTRAINT uk_factura_numero UNIQUE (serie, correlativo)
+    CONSTRAINT uk_factura_numero UNIQUE (serie, correlativo),
     CONSTRAINT fk_factura_cliente FOREIGN KEY (numero_documento) REFERENCES cliente (numero_documento),
     CONSTRAINT fk_factura_empleado FOREIGN KEY (codigo_empleado) REFERENCES empleado (codigo_empleado),
     CONSTRAINT fk_factura_sucursal FOREIGN KEY (codigo_sucursal) REFERENCES sucursal (codigo_sucursal),
@@ -164,7 +164,7 @@ CREATE TABLE detalle_factura (
     CONSTRAINT fk_detalle_factura 
         FOREIGN KEY (id_factura) 
         REFERENCES factura (id_factura) 
-        ON DELETE CASCADE
+        ON DELETE CASCADE,
     CONSTRAINT fk_detalle_producto
         FOREIGN KEY (codigo_producto)
         REFERENCES producto (codigo)
@@ -189,7 +189,7 @@ CREATE TABLE pago (
     id_factura    INTEGER NOT NULL,
     codigo_metodo SMALLINT NOT NULL,
     CONSTRAINT pk_pago PRIMARY KEY (id_pago),
-    CONSTRAINT uk_pago_numero UNIQUE (numero_pago)
+    CONSTRAINT uk_pago_numero UNIQUE (numero_pago),
     CONSTRAINT fk_pago_factura FOREIGN KEY (id_factura) REFERENCES factura (id_factura),
     CONSTRAINT fk_pago_metodo FOREIGN KEY (codigo_metodo) REFERENCES metodo_pago (codigo_metodo)
 );
