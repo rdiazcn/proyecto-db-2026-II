@@ -121,8 +121,8 @@ CREATE TABLE producto (
 CREATE TABLE inventario (
     codigo_producto     VARCHAR(20) NOT NULL,
     codigo_sucursal     INTEGER NOT NULL,
-    cantidad_disponible INTEGER NOT NULL DEFAULT 0,
-    stock_minimo        INTEGER NOT NULL DEFAULT 0,
+    cantidad_disponible INTEGER NOT NULL DEFAULT 0 CHECK (cantidad_disponible >= 0),
+    stock_minimo        INTEGER NOT NULL DEFAULT 0 CHECK (stock_minimo >= 0),
     CONSTRAINT pk_inventario PRIMARY KEY (codigo_producto, codigo_sucursal),
     CONSTRAINT fk_inventario_producto
         FOREIGN KEY (codigo_producto)
