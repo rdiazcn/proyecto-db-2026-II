@@ -66,6 +66,10 @@ INSERT INTO detalle_factura (id_factura, codigo_producto, cantidad, precio_aplic
 INSERT INTO pago (numero_pago, fecha_pago, monto, referencia, id_factura, codigo_metodo) VALUES
     ('PAG-0001', '2026-10-05', 3590.00, NULL,          1, 1),
     ('PAG-0002', '2026-10-16', 180.00,  'TR-998877',   3, 3);
+
+-- nota_credito
+INSERT INTO nota_credito (numero, fecha_emision, motivo, monto, id_factura) VALUES
+    ('NC01-0001', '2026-10-10', 'Devolución parcial de producto', 45.00, 1);
 -------------------------------------------------
 -- cliente: se marca como inactivo a un cliente que dejó de comprar
 -- producto: aumento de 10 % a los productos de tecnología
