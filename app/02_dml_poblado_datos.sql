@@ -105,3 +105,7 @@ UPDATE factura
 SET    codigo_estado = 4
 WHERE  codigo_estado = 1 AND fecha_emision < '2026-10-10';
 
+-- detalle_factura
+UPDATE detalle_factura
+SET    cantidad = 3
+WHERE  id_factura = 1 AND codigo_producto = 'PROD-002';
