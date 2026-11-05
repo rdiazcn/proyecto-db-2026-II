@@ -53,6 +53,14 @@ INSERT INTO factura (serie, correlativo, fecha_emision, observacion, numero_docu
     ('F001', 2, '2026-10-08', 'Atención preferencial',     '20123456789', 2, 1, 1),
     ('F001', 3, '2026-10-15', 'Entrega a domicilio',       '001234567',   3, 2, 1),
     ('F001', 4, '2026-10-20', 'Pago pendiente por revisar', '45678912',   3, 2, 1);    
+
+-- detalle_factura
+INSERT INTO detalle_factura (id_factura, codigo_producto, cantidad, precio_aplicado) VALUES
+    (1, 'PROD-001', 1, 3500.00),
+    (1, 'PROD-002', 2, 45.00),
+    (2, 'PROD-004', 2, 450.00),
+    (3, 'PROD-003', 1, 180.00),
+    (4, 'PROD-005', 1, 100.00);
 -------------------------------------------------
 -- cliente: se marca como inactivo a un cliente que dejó de comprar
 -- producto: aumento de 10 % a los productos de tecnología
