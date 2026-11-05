@@ -105,17 +105,3 @@ UPDATE factura
 SET    codigo_estado = 4
 WHERE  codigo_estado = 1 AND fecha_emision < '2026-10-10';
 
--- detalle_factura
-UPDATE detalle_factura
-SET    cantidad = 3
-WHERE  id_factura = 1 AND codigo_producto = 'PROD-002';
-
--- pago
-UPDATE pago
-SET    referencia = 'REC-EF-2026-001'
-WHERE  id_pago = 1;
-
--- nota_credito
-UPDATE nota_credito
-SET    motivo = 'Anulación total por devolución de mercancía defectuosa de fábrica'
-WHERE  id_nota_credito = 1;
