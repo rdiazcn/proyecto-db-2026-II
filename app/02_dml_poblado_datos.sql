@@ -115,3 +115,7 @@ UPDATE pago
 SET    referencia = 'REC-EF-2026-001'
 WHERE  id_pago = 1;
 
+-- nota_credito
+UPDATE nota_credito
+SET    motivo = 'Anulación total por devolución de mercancía defectuosa de fábrica'
+WHERE  id_nota_credito = 1;
