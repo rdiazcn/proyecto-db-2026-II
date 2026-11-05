@@ -94,3 +94,28 @@ WHERE  codigo_empleado = 4;
 -- detalle_factura: se corrige la cantidad en una factura aún pendiente
 -- pago: se registra el número de recibo de un pago en efectivo
 --  nota_credito: se detalla el motivo de la anulación
+
+-- inventario
+UPDATE inventario
+SET    cantidad_disponible = cantidad_disponible + 20
+WHERE  codigo_producto = 'PROD-001' AND codigo_sucursal = 1;
+
+-- factura
+UPDATE factura
+SET    codigo_estado = 4
+WHERE  codigo_estado = 1 AND fecha_emision < '2026-10-10';
+
+-- detalle_factura
+UPDATE detalle_factura
+SET    cantidad = 3
+WHERE  id_factura = 1 AND codigo_producto = 'PROD-002';
+
+-- pago
+UPDATE pago
+SET    referencia = 'REC-EF-2026-001'
+WHERE  id_pago = 1;
+
+-- nota_credito
+UPDATE nota_credito
+SET    motivo = 'Anulación total por devolución de mercancía defectuosa de fábrica'
+WHERE  id_nota_credito = 1;
