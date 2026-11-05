@@ -38,7 +38,14 @@ INSERT INTO empleado (codigo_rol, codigo_sucursal, nombre, correo) VALUES
 --detalle_factura (depende de factura y producto)
 --pago (depende de factura y metodo pago)
 --nota_credito (depende de factura)
-
+-- factura
+-- inventario
+INSERT INTO inventario (codigo_producto, codigo_sucursal, cantidad_disponible, stock_minimo) VALUES
+    ('PROD-001', 1, 10, 2),
+    ('PROD-002', 1, 50, 5),
+    ('PROD-003', 2, 15, 3),
+    ('PROD-004', 2, 8,  2),
+    ('PROD-005', 1, 0,  0);
 -------------------------------------------------
 -- cliente: se marca como inactivo a un cliente que dejó de comprar
 -- producto: aumento de 10 % a los productos de tecnología
