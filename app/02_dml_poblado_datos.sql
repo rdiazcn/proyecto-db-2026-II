@@ -109,3 +109,9 @@ WHERE  codigo_estado = 1 AND fecha_emision < '2026-10-10';
 UPDATE detalle_factura
 SET    cantidad = 3
 WHERE  id_factura = 1 AND codigo_producto = 'PROD-002';
+
+-- pago
+UPDATE pago
+SET    referencia = 'REC-EF-2026-001'
+WHERE  id_pago = 1;
+
