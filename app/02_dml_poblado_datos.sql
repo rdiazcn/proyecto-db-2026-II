@@ -39,6 +39,12 @@ INSERT INTO empleado (codigo_rol, codigo_sucursal, nombre, correo) VALUES
 --producto (depende de categoria y proveedor)
 --tipo_documento (ya poblado en init.sql)
 --estado_factura
+INSERT INTO estado_factura (nombre) VALUES
+    ('Pendiente'),
+    ('Pagada'),
+    ('Anulada'),
+    ('Vencida'),
+    ('Parcialmente pagada');
 --inventario (depende de producto y sucursal)
 --factura (depende de cliente, empleado, sucursal y estado_factura)
 --detalle_factura (depende de factura y producto)
@@ -97,6 +103,9 @@ WHERE  ruc = '20512345671';
 -- metodo_pago: se renombra el método Tarjeta
 -- tipo_documento: se aclara la descripción del CE
 -- estado_factura: se renombra el estado inicial
+UPDATE estado_factura
+SET    nombre = 'Pendiente de pago'
+WHERE  codigo_estado = 1;
 -- inventario: reposición de 20 laptops en la sucursal 1
 --     (la llave es compuesta: producto y sucursal)
 -- factura: las facturas pendientes emitidas antes del 10/10 pasan a Vencida (4)
