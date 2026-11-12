@@ -37,6 +37,12 @@ INSERT INTO empleado (codigo_rol, codigo_sucursal, nombre, correo) VALUES
     (4, 4, 'Maria Cornejo Lupa',        'maria.cornejo@example.com'),
     (5, 5, 'Jose Quispe Caceres',        'jose.quispe@example.com');
 --producto (depende de categoria y proveedor)
+INSERT INTO producto (codigo, codigo_categoria, ruc_proveedor, descripcion, tipo, precio_unitario, estado) VALUES
+    ('PROD-001', 1, '20498765432', 'Laptop 14" 8GB RAM 256GB SSD',     'Bien',     3500.00, 'Activo'),
+    ('PROD-002', 1, '20498765432', 'Mouse inalámbrico USB',            'Bien',       45.00, 'Activo'),
+    ('PROD-003', 2, '20433221100', 'Juego de ollas antiadherentes x5', 'Bien',      180.00, 'Activo'),
+    ('PROD-004', 3, '20601234567', 'Silla ergonómica de oficina',      'Bien',      450.00, 'Activo'),
+    ('PROD-005', 4, '20577889900', 'Quinua orgánica 1 kg',             'Bien',      100.00, 'Activo');
 --tipo_documento (ya poblado en init.sql)
 --estado_factura
 INSERT INTO estado_factura (nombre) VALUES
@@ -85,6 +91,9 @@ INSERT INTO nota_credito (numero, fecha_emision, motivo, monto, id_factura) VALU
 -------------------------------------------------
 -- cliente: se marca como inactivo a un cliente que dejó de comprar
 -- producto: aumento de 10 % a los productos de tecnología
+UPDATE producto
+SET    precio_unitario = ROUND(precio_unitario * 1.10, 2)
+WHERE  codigo_categoria = 1;
 -- sucursal: se registra el teléfono que faltaba
 UPDATE sucursal
 SET    telefono = '054-259876'
