@@ -20,6 +20,12 @@ INSERT INTO categoria (nombre, descripcion) VALUES
     ('Alimentos',  'Productos de consumo envasados'),
     ('Servicios',  'Servicios técnicos y de soporte');
 --proveedor
+INSERT INTO proveedor (ruc, razon_social, direccion, correo, telefono) VALUES
+    ('20512345671', 'Distribuidora Andina S.A.C.', 'Av. Parra 410, Arequipa',   'ventas@andina.example.com',      '054-281234'),
+    ('20498765432', 'TecnoImport Perú S.A.',       'Jr. Washington 780, Lima',  'contacto@tecnoimport.example.com', '01-3345566'),
+    ('20601234567', 'Oficina Total E.I.R.L.',      'Av. Dolores 215, Arequipa', 'pedidos@oficinatotal.example.com', NULL),
+    ('20577889900', 'Alimentos del Sur S.R.L.',    'Calle Puno 90, Juliaca',    'comercial@alisur.example.com',   '051-322100'),
+    ('20433221100', 'Hogar y Más S.A.C.',          'Av. Grau 1300, Cusco',      'info@hogarymas.example.com',     '084-244500');
 --metodo_pago
 --cliente (depende de tipo_documento)
 --empleado  (depende de rol y sucursal)
@@ -83,6 +89,9 @@ UPDATE empleado
 SET    codigo_sucursal = 1
 WHERE  codigo_empleado = 4;
 -- proveedor: cambio de correo de contacto
+UPDATE proveedor
+SET    correo = 'ventas.nuevo@andina.example.com'
+WHERE  ruc = '20512345671';
 -- rol: se precisa la descripción del rol Contador
 -- categoria: se amplía la descripción de Tecnología
 -- metodo_pago: se renombra el método Tarjeta
