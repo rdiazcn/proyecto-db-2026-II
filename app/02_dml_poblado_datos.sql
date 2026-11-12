@@ -27,6 +27,12 @@ INSERT INTO proveedor (ruc, razon_social, direccion, correo, telefono) VALUES
     ('20577889900', 'Alimentos del Sur S.R.L.',    'Calle Puno 90, Juliaca',    'comercial@alisur.example.com',   '051-322100'),
     ('20433221100', 'Hogar y Más S.A.C.',          'Av. Grau 1300, Cusco',      'info@hogarymas.example.com',     '084-244500');
 --metodo_pago
+INSERT INTO metodo_pago (nombre) VALUES
+    ('Efectivo'),
+    ('Tarjeta'),
+    ('Transferencia'),
+    ('Yape'),
+    ('Plin');
 --cliente (depende de tipo_documento)
 --empleado  (depende de rol y sucursal)
 INSERT INTO empleado (codigo_rol, codigo_sucursal, nombre, correo) VALUES
@@ -110,6 +116,9 @@ WHERE  ruc = '20512345671';
 -- rol: se precisa la descripción del rol Contador
 -- categoria: se amplía la descripción de Tecnología
 -- metodo_pago: se renombra el método Tarjeta
+UPDATE metodo_pago
+SET    nombre = 'Tarjeta de crédito/débito'
+WHERE  nombre = 'Tarjeta';
 -- tipo_documento: se aclara la descripción del CE
 -- estado_factura: se renombra el estado inicial
 UPDATE estado_factura
