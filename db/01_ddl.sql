@@ -213,4 +213,5 @@ COMMENT ON TABLE proveedor       IS 'Proveedores que suministran productos.';
 
 INSERT INTO tipo_documento (codigo, descripcion, longitud) VALUES
     ('DNI', 'Documento Nacional de Identidad', 8),
-    ('RUC', 'Registro Único de Contribuyentes', 11);
+    ('RUC', 'Registro Único de Contribuyentes', 11),
+    ('CE',  'Carné de Extranjería', 9);
