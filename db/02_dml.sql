@@ -131,7 +131,10 @@ WHERE  ruc = '20512345671';
 UPDATE rol
 SET    descripcion = 'Revisa facturas y notas de crédito y concilia los pagos'
 WHERE  nombre = 'Contador';
--- categoria: se amplía la descripción de Tecnología
+-- categoria: se amplía la descripción de Tecnología\
+UPDATE categoria
+SET    descripcion = 'Equipos de cómputo, periféricos y accesorios'
+WHERE  nombre = 'Tecnología';
 -- metodo_pago: se renombra el método Tarjeta
 UPDATE metodo_pago
 SET    nombre = 'Tarjeta de crédito/débito'
