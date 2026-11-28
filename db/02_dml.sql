@@ -154,8 +154,8 @@ WHERE  codigo_estado = 1 AND fecha_emision < '2026-10-10';
 
 -- detalle_factura
 UPDATE detalle_factura
-SET    cantidad = 3
-WHERE  id_factura = 1 AND codigo_producto = 'PROD-002';
+SET    cantidad = 2
+WHERE  id_factura = 4 AND codigo_producto = 'PROD-005';
 
 -- pago
 UPDATE pago
@@ -164,5 +164,5 @@ WHERE  id_pago = 1;
 
 -- nota_credito
 UPDATE nota_credito
-SET    motivo = 'Anulación total por devolución de mercancía defectuosa de fábrica'
+SET    motivo = 'Devolución parcial de un mouse inalámbrico con defecto de fábrica'
 WHERE  id_nota_credito = 1;
