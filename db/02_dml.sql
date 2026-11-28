@@ -34,6 +34,12 @@ INSERT INTO metodo_pago (nombre) VALUES
     ('Yape'),
     ('Plin');
 --cliente (depende de tipo_documento)
+INSERT INTO cliente (numero_documento, codigo_tipo_documento, nombre_razon_social, direccion, correo, telefono, estado) VALUES
+    ('70112233',    'DNI', 'Carlos Mamani Quispe',         'Calle Jerusalén 301, Arequipa',    'carlos.mamani@example.com',    '959111222',  'Activo'),
+    ('20123456789', 'RUC', 'Comercial Los Andes S.A.C.',   'Av. Ejército 700, Arequipa',       'compras@losandes.example.com', '054-270011', 'Activo'),
+    ('001234567',   'CE',  'Rodrigo Diaz Cucalon',          'Calle Bolívar 150, Arequipa',      'rodrigo.diaz@example.com',      '959333444',  'Activo'),
+    ('45678912',    'DNI', 'Alejandro Salazar Guillen',       'Av. Dolores 540, Arequipa',        'a.salazar@example.com',    NULL,         'Activo'),
+    ('20987654321', 'RUC', 'Inversiones del Misti S.R.L.', 'Av. Venezuela 1200, Arequipa',     'info@delmisti.example.com',    '054-281122', 'Activo');
 --empleado  (depende de rol y sucursal)
 INSERT INTO empleado (codigo_rol, codigo_sucursal, nombre, correo) VALUES
     (1, 1, 'Rodrigo Díaz Cucalón',     'rodrigo.diaz@example.com'),
