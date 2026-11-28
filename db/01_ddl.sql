@@ -114,7 +114,8 @@ CREATE TABLE producto (
     estado VARCHAR(20) NOT NULL,
     CONSTRAINT pk_producto PRIMARY KEY (codigo),
     CONSTRAINT fk_producto_categoria FOREIGN KEY (codigo_categoria) REFERENCES categoria(codigo_categoria),
-    CONSTRAINT fk_producto_proveedor FOREIGN KEY (ruc_proveedor) REFERENCES proveedor(ruc)
+    -- Si se elimina un proveedor, el producto se conserva sin proveedor (SET NULL)
+    CONSTRAINT fk_producto_proveedor FOREIGN KEY (ruc_proveedor) REFERENCES proveedor(ruc) ON DELETE SET NULL
 );
 -----------------------------------------------
 --tabla inventario
