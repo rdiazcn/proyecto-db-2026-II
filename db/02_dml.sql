@@ -79,9 +79,9 @@ INSERT INTO inventario (codigo_producto, codigo_sucursal, cantidad_disponible, s
 
 -- factura
 INSERT INTO factura (serie, correlativo, fecha_emision, observacion, numero_documento, codigo_empleado, codigo_sucursal, codigo_estado) VALUES
-    ('F001', 1, '2026-10-05', 'Venta al contado',          '70112233',    2, 1, 1),
+    ('F001', 1, '2026-10-05', 'Venta al contado',          '70112233',    2, 1, 2),
     ('F001', 2, '2026-10-08', 'Atención preferencial',     '20123456789', 2, 1, 1),
-    ('F001', 3, '2026-10-15', 'Entrega a domicilio',       '001234567',   3, 2, 1),
+    ('F001', 3, '2026-10-15', 'Entrega a domicilio',       '001234567',   3, 2, 2),
     ('F001', 4, '2026-10-20', 'Pago pendiente por revisar', '45678912',   3, 2, 1);    
 
 -- detalle_factura
