@@ -86,8 +86,9 @@ CREATE TABLE cliente (
     direccion VARCHAR(150) NOT NULL,
     correo VARCHAR(100) NOT NULL,
     telefono VARCHAR(20),
-    estado VARCHAR(20) NOT NULL,
+    estado VARCHAR(20) NOT NULL DEFAULT 'Activo',
     CONSTRAINT pk_cliente PRIMARY KEY (numero_documento),
+    CONSTRAINT ck_cliente_estado CHECK (estado IN ('Activo', 'Inactivo')),
     CONSTRAINT fk_cliente_tipo_doc FOREIGN KEY (codigo_tipo_documento) REFERENCES tipo_documento(codigo)
 );
 
@@ -111,8 +112,11 @@ CREATE TABLE producto (
     descripcion VARCHAR(150) NOT NULL,
     tipo VARCHAR(20) NOT NULL,
     precio_unitario DECIMAL(10,2) NOT NULL,
-    estado VARCHAR(20) NOT NULL,
+    estado VARCHAR(20) NOT NULL DEFAULT 'Activo',
     CONSTRAINT pk_producto PRIMARY KEY (codigo),
+    CONSTRAINT ck_producto_precio CHECK (precio_unitario >= 0),
+    CONSTRAINT ck_producto_tipo   CHECK (tipo IN ('Bien', 'Servicio')),
+    CONSTRAINT ck_producto_estado CHECK (estado IN ('Activo', 'Inactivo')),
     CONSTRAINT fk_producto_categoria FOREIGN KEY (codigo_categoria) REFERENCES categoria(codigo_categoria),
     -- Si se elimina un proveedor, el producto se conserva sin proveedor (SET NULL)
     CONSTRAINT fk_producto_proveedor FOREIGN KEY (ruc_proveedor) REFERENCES proveedor(ruc) ON DELETE SET NULL
@@ -146,6 +150,7 @@ CREATE TABLE factura (
     codigo_estado    SMALLINT NOT NULL,
     CONSTRAINT pk_factura PRIMARY KEY (id_factura),
     CONSTRAINT uk_factura_numero UNIQUE (serie, correlativo),
+    CONSTRAINT ck_factura_correlativo CHECK (correlativo > 0),
     CONSTRAINT fk_factura_cliente FOREIGN KEY (numero_documento) REFERENCES cliente (numero_documento),
     CONSTRAINT fk_factura_empleado FOREIGN KEY (codigo_empleado) REFERENCES empleado (codigo_empleado),
     CONSTRAINT fk_factura_sucursal FOREIGN KEY (codigo_sucursal) REFERENCES sucursal (codigo_sucursal),
