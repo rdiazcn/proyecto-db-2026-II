@@ -107,6 +107,9 @@ INSERT INTO nota_credito (numero, fecha_emision, motivo, monto, id_factura) VALU
     ('NC01-0001', '2026-10-10', 'Devolución parcial de producto', 45.00, 1);
 -------------------------------------------------
 -- cliente: se marca como inactivo a un cliente que dejó de comprar
+UPDATE cliente
+SET    estado = 'Inactivo'
+WHERE  numero_documento = '20987654321';
 -- producto: aumento de 10 % a los productos de tecnología
 UPDATE producto
 SET    precio_unitario = ROUND(precio_unitario * 1.10, 2)
