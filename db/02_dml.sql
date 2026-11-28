@@ -118,7 +118,6 @@ WHERE  codigo_categoria = 1;
 UPDATE sucursal
 SET    telefono = '054-259876'
 WHERE  codigo_sucursal = 3;
-
 -- empleado: traslado de un empleado a otra sucursal
 UPDATE empleado
 SET    codigo_sucursal = 1
@@ -140,38 +139,35 @@ UPDATE metodo_pago
 SET    nombre = 'Tarjeta de crédito/débito'
 WHERE  nombre = 'Tarjeta';
 -- tipo_documento: se aclara la descripción del CE
+UPDATE tipo_documento
+SET    descripcion = 'Carné de Extranjería (extranjeros residentes)'
+WHERE  codigo = 'CE';
 -- estado_factura: se renombra el estado inicial
 UPDATE estado_factura
 SET    nombre = 'Pendiente de pago'
 WHERE  codigo_estado = 1;
--- inventario: reposición de 20 laptops en la sucursal 1
---     (la llave es compuesta: producto y sucursal)
--- factura: las facturas pendientes emitidas antes del 10/10 pasan a Vencida (4)
--- detalle_factura: se corrige la cantidad en una factura aún pendiente
--- pago: se registra el número de recibo de un pago en efectivo
---  nota_credito: se detalla el motivo de la anulación
-
--- inventario
+-- inventario: reposición de 20 laptops en la sucursal 1 
+-- (la llave es compuesta: producto y sucursal)
 UPDATE inventario
 SET    cantidad_disponible = cantidad_disponible + 20
 WHERE  codigo_producto = 'PROD-001' AND codigo_sucursal = 1;
 
--- factura
+-- factura: las facturas pendientes emitidas antes del 10/10 pasan a Vencida (4)
 UPDATE factura
 SET    codigo_estado = 4
 WHERE  codigo_estado = 1 AND fecha_emision < '2026-10-10';
 
--- detalle_factura
+-- detalle_factura: se corrige la cantidad en una factura aún pendiente
 UPDATE detalle_factura
 SET    cantidad = 2
 WHERE  id_factura = 4 AND codigo_producto = 'PROD-005';
 
--- pago
+-- pago: se registra el número de recibo de un pago en efectivo
 UPDATE pago
 SET    referencia = 'REC-EF-2026-001'
 WHERE  id_pago = 1;
 
--- nota_credito
+-- nota_credito: se detalla el motivo de la anulación
 UPDATE nota_credito
 SET    motivo = 'Devolución parcial de un mouse inalámbrico con defecto de fábrica'
 WHERE  id_nota_credito = 1;
