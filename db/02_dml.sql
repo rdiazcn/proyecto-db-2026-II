@@ -128,6 +128,9 @@ UPDATE proveedor
 SET    correo = 'ventas.nuevo@andina.example.com'
 WHERE  ruc = '20512345671';
 -- rol: se precisa la descripción del rol Contador
+UPDATE rol
+SET    descripcion = 'Revisa facturas y notas de crédito y concilia los pagos'
+WHERE  nombre = 'Contador';
 -- categoria: se amplía la descripción de Tecnología
 -- metodo_pago: se renombra el método Tarjeta
 UPDATE metodo_pago
