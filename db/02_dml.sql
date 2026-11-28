@@ -75,7 +75,12 @@ INSERT INTO inventario (codigo_producto, codigo_sucursal, cantidad_disponible, s
     ('PROD-002', 1, 50, 5),
     ('PROD-003', 2, 15, 3),
     ('PROD-004', 2, 8,  2),
-    ('PROD-005', 1, 0,  0);
+    ('PROD-005', 1, 0,  0),
+    ('PROD-001', 2, 6,  2),
+    ('PROD-002', 2, 30, 5),
+    ('PROD-003', 1, 12, 3),
+    ('PROD-004', 1, 6,  2),
+    ('PROD-005', 2, 40, 5);
 
 -- factura
 INSERT INTO factura (serie, correlativo, fecha_emision, observacion, numero_documento, codigo_empleado, codigo_sucursal, codigo_estado) VALUES
